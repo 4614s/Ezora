@@ -1,1 +1,1 @@
-# Ezora
+# © Ezora web libraries and frameworks
