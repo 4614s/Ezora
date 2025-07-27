@@ -1,1 +1,1 @@
-# © Ezora web libraries and frameworks
+#<p align="center">© Ezora web libraries and frameworks</p>
