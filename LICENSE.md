@@ -1,3 +1,4 @@
+<div translate="no">
 # Ezora Halk Lisansı v1
 
 Madde 1 - Tanımlar  
@@ -27,3 +28,4 @@ Bu lisans Ezora’nın bütünlüğünü ve ismini korumak için hazırlanmışt
 
 *Ezora Halk Lisansı v1*  
 Tüm hakları saklıdır.
+</div>
