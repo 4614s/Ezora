@@ -4,6 +4,6 @@ document.addEventListener("DOMContentLoaded",()=>{
 `;
 
 document.querySelector('.ezs-footer').style.textAlign="center";
-document.querySelector('.ezs-footer').style.margin="20px";
+document.querySelector('.ezs-footer').style.marginBlock="20px";
 document.querySelector('.ezs-footer').style.color="white";
 });
