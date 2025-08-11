@@ -17,7 +17,7 @@ Madde 5 - Sorumluluk Reddi
 Ezora, "olduğu gibi" ve "mevcut haliyle" sağlanmaktadır.  
 Ezora’nın kullanımından kaynaklanabilecek doğrudan veya dolaylı hiçbir zarar veya kayıp için hiçbir sorumluluk kabul edilmez.
 
-Madde 6 - Yürürlük
+Madde 6 - Yürürlük 
 Bu lisans, Ezora’nın her türlü dağıtımı için geçerlidir ve yürürlüğe girdiği tarihten itibaren tüm kullanımları kapsar.
 
 ---
