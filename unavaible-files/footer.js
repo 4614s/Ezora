@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded",()=>{
-  document.querySelector('.ezs-footer').innerHTML = `
-©${new Date().getFullYear()} <span onclick="location.href='https://ezora.pages.dev'" style="cursor:pointer;">Ezora™</span> – <a href="https://github.com/4614s/Ezora/tree/main/LICENSE.md" style="color: white;">Ezora Halk Lisansı v1</a>
+let lang = navigator.language;
+let licenseName; 
+lang.startsWith("tr") ? licenseName = "Ezora Halk Lisansı v1" : lang.startsWith("az") ? licenseName = "Ezora İctimai Lisenziyası v1" : licenseName = "Ezora Public License v1";
+  
+document.querySelector('.ezs-footer').innerHTML = `
+©${new Date().getFullYear()} <span onclick="location.href='https://ezora.pages.dev'" style="cursor:pointer;">Ezora™</span> – <a href="https://github.com/4614s/Ezora/tree/main/LICENSE.md" style="color: white;">${licenseName}</a>
 `;
 
 document.querySelector('.ezs-footer').style.textAlign="center";
