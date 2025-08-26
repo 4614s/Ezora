@@ -1,0 +1,89 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <script src="https://cdn.jsdelivr.net/gh/4614s/ezoradom-the-functions@main/CDN/v1.1.fast.js"></script>  
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <style type="text/tailwindcss">  
+    body {  
+     @apply bg-gray-50 font-sans;  
+    }  
+  
+    li {  
+     @apply bg-white text-gray-800 px-4 py-3 my-2 rounded-md shadow ring-1 ring-gray-300 hover:ring-gray-500 transition duration-150 w-[80vw] sm:w-[75vw] md:w-[55vw] lg:w-[40vw] xl:w-[37vw] 2xl:w-[35vw] mx-auto flex justify-between;  
+    }  
+  
+    span {  
+     @apply text-red-500 font-semibold hover:text-red-700 hover:font-bold cursor-pointer;  
+    }  
+  
+    #clearTodosBtn {  
+     @apply px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mx-2 active:scale-95 my-4 transition;  
+    }  
+  
+    #input {  
+    @apply w-[85vw] sm:w-[75vw] md:w-[55vw] lg:w-[40vw] xl:w-[37vw] 2xl:w-[35vw] mx-auto my-5 block px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-300 placeholder-gray-400; 
+    }  
+  </style>  
+  <title>Basic To-do list</title>  
+</head>  
+<body>  
+   <input type="text" id="input" placeholder="Add a new to-do">  
+  <ul id="todos" style="list-style: none;"></ul>  
+  <button id="clearTodosBtn">Clear All Todos</button>  
+  <script>  
+    const input = document.querySelector("#input");  
+    let alertMessage = "Are you sure you want to delete all todos?";
+    let todoStorage = ez.getData("todos") ? JSON.parse(ez.getData("todos")) : [];  
+  
+    if(navigator.language.startsWith("tr")){  
+      input.placeholder = "Yeni bir yapılacak ekleyin.";  
+      document.querySelector("#clearTodosBtn").textContent = "Tüm Yapılacakları Temizle";  
+      document.title = "Basit Yapılacaklar Listesi";  
+      alertMessage = "Tüm yapılacakları silmek istediğinizden emin misiniz?";
+    }  
+  
+    ez.addEventById("input","keydown",e=>{  
+      if(e.key === "Enter" && input.value.trim() !== ""){  
+        addTodo(input.value);  
+        input.value = "";  
+      }  
+    });  
+  
+    ez.addEventById("clearTodosBtn","click",()=>{  
+      if(document.querySelectorAll("li").length >= 1){  
+        if(confirm(alertMessage)){
+          ez.removeElementByQuerySelector("ul>li", "all");  
+        ez.setData("todos", "[]");  
+        }
+      }  
+  
+    });  
+  
+    function addTodo(val){  
+      ez.createElement("li",`${val} <span>×</span>`,0,0,"ul");  
+      todoStorage.push(val);  
+      ez.setData("todos", JSON.stringify(todoStorage));  
+    }  
+     
+    addRemoveEventToTodos();  
+  
+    if(todoStorage.length !== 0){  
+      todoStorage.forEach(todo => ez.createElement("li",`${todo} <span class="cross">×</span>`,0,0,"ul"));  
+    }  
+  
+    function addRemoveEventToTodos(){  
+      ez.addEventByQuerySelector("ul", "click", e => {  
+        if(e.target.tagName.toLowerCase() === "span"){  
+       const index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement);  
+        todoStorage.splice(index, 1);  
+        ez.setData("todos", JSON.stringify(todoStorage));  
+        e.target.parentElement.remove();  
+        }  
+     });  
+    }  
+  </script>  
+</body>  
+</html>
