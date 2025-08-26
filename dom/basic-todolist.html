@@ -20,7 +20,7 @@
     }  
   
     #clearTodosBtn {  
-     @apply px-4 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mx-2 active:scale-95 my-4 transition;  
+     @apply p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 mx-3 active:scale-95 my-4 transition;  
     }  
   
     #input {  
@@ -39,12 +39,16 @@
     let todoStorage = ez.getData("todos") ? JSON.parse(ez.getData("todos")) : [];  
   
     if(navigator.language.startsWith("tr")){  
+      document.title = "Basit Yapılacaklar Listesi";  
       input.placeholder = "Yeni bir yapılacak ekleyin.";  
       document.querySelector("#clearTodosBtn").textContent = "Tüm Yapılacakları Temizle";  
-      document.title = "Basit Yapılacaklar Listesi";  
       alertMessage = "Tüm yapılacakları silmek istediğinizden emin misiniz?";
     }  
-  
+
+    if(todoStorage.length !== 0){  
+      todoStorage.forEach(todo => ez.createElement("li",`${todo} <span class="cross">×</span>`,0,0,"ul"));  
+    }  
+    
     ez.addEventById("input","keydown",e=>{  
       if(e.key === "Enter" && input.value.trim() !== ""){  
         addTodo(input.value);  
@@ -69,10 +73,6 @@
     }  
      
     addRemoveEventToTodos();  
-  
-    if(todoStorage.length !== 0){  
-      todoStorage.forEach(todo => ez.createElement("li",`${todo} <span class="cross">×</span>`,0,0,"ul"));  
-    }  
   
     function addRemoveEventToTodos(){  
       ez.addEventByQuerySelector("ul", "click", e => {  
