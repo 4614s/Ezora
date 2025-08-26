@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/gh/4614s/ezoradom-the-functions@main/CDN/v1.1.fast.js"></script>
+  <style>
+   html {
+     font-size: clamp(16px,2.7vw,2.7vw);
+   }
+  
+    body {
+      background: linear-gradient(45deg,darkblue,blue,lightblue) no-repeat center center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    span {
+      display: block;
+      color: white;
+      font-size: 4rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    button {
+      background: lightblue;
+      padding: 14px 19px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 3px solid black;
+      font-size: 18px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    
+    button:hover { 
+      background: skyblue;
+    }
+    
+    button:active { 
+      transform: scale(0.9);
+    }
+  </style>
+  <title>Click Counter</title>
+</head>
+<body>
+  <script>
+    let resetValue = navigator.language.startsWith("tr") ? "sıfırla" : "reset";
+    
+    if(navigator.language.startsWith("tr")) document.title="Tıklama sayacı";
+    
+    ez.createClickCounterApp("+","-",resetValue,1,1);
+  </script>
+</body>
+</html>
