@@ -18,6 +18,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 12px;
+      font-family: sans-serif, arial;
     }
     
     span {
@@ -53,7 +54,7 @@
   <script>
     let resetValue = navigator.language.startsWith("tr") ? "sıfırla" : "reset";
     
-    if(navigator.language.startsWith("tr")) document.title="Tıklama sayacı";
+    if(navigator.language.startsWith("tr")) document.title = "Tıklama sayacı";
     
     ez.createClickCounterApp("+","-",resetValue,1,1);
   </script>
