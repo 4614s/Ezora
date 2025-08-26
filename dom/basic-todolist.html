@@ -20,7 +20,7 @@
     }  
   
     #clearTodosBtn {  
-     @apply py-2 px-3 lg:py-3 lg:px-4 md:mx-4 mx-3 my-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 active:scale-95 transition;  
+     @apply py-2 px-3 lg:py-3 lg:px-4 md:mx-4 mx-3 my-4 text-white rounded-md hover:bg-blue-600 active:scale-95 transition;  
     }  
   
     #input {  
@@ -30,9 +30,9 @@
   <title>Basic To-do list</title>  
 </head>  
 <body>  
-   <input type="text" id="input" placeholder="Add a new to-do">  
+  <input type="text" id="input" placeholder="Add a new to-do">  
   <ul id="todos" style="list-style: none;"></ul>  
-  <button id="clearTodosBtn">Clear All Todos</button>  
+  <button id="clearTodosBtn" class="bg-blue-500">Clear All Todos</button>  
   <script>  
     const input = document.querySelector("#input");  
     let alertMessage = "Are you sure you want to delete all todos?";
@@ -60,7 +60,10 @@
       if(document.querySelectorAll("li").length >= 1){  
         if(confirm(alertMessage)){
           ez.removeElementByQuerySelector("ul>li", "all");  
-        ez.setData("todos", "[]");  
+          ez.setData("todos", "[]");  
+          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-300", "bg-blue-500");   
+        } else {
+          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-500", "bg-blue-300");
         }
       }  
   
