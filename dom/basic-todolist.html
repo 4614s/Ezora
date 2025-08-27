@@ -72,7 +72,7 @@
       }
       
       ez.createElement("li",`${escapeHTML(val)} <span>×</span>`,0,0,"ul");  
-      todoStorage.push(val);  
+      todoStorage.push(escapeHTML(val));  
       ez.setData("todos", JSON.stringify(todoStorage));  
     }  
      
