@@ -20,7 +20,7 @@
     }  
   
     #clearTodosBtn {  
-     @apply py-2 px-3 lg:py-3 lg:px-4 md:mx-4 mx-3 my-4 text-white rounded-md hover:bg-blue-600 active:scale-95 transition;  
+     @apply bg-blue-500 py-2 px-3 lg:py-3 lg:px-4 md:mx-4 mx-3 my-4 text-white rounded-md hover:bg-blue-600 active:scale-95 transition;  
     }  
   
     #input {  
@@ -32,7 +32,7 @@
 <body>  
   <input type="text" id="input" placeholder="Add a new to-do">  
   <ul id="todos" style="list-style: none;"></ul>  
-  <button id="clearTodosBtn" class="bg-blue-500">Clear All Todos</button>  
+  <button id="clearTodosBtn">Clear All Todos</button>  
   <script>  
     const input = document.querySelector("#input");  
     let alertMessage = "Are you sure you want to delete all todos?";
@@ -61,16 +61,17 @@
         if(confirm(alertMessage)){
           ez.removeElementByQuerySelector("ul>li", "all");  
           ez.setData("todos", "[]");  
-          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-50", "bg-blue-500");   
-        } else {
-          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-500", "bg-blue-50");
-        }
+         } 
       }  
   
     });  
   
-    function addTodo(val){  
-      ez.createElement("li",`${val} <span>×</span>`,0,0,"ul");  
+    function addTodo(val){ 
+      const escapeHTML = (str) => {
+        return str.replace("/</g", "Error").replace("/>/g", "Error");
+      }
+      
+      ez.createElement("li",`${escapeHTML(val)} <span>×</span>`,0,0,"ul");  
       todoStorage.push(val);  
       ez.setData("todos", JSON.stringify(todoStorage));  
     }  
