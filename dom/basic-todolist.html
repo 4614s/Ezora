@@ -68,7 +68,7 @@
   
     function addTodo(val){ 
       const escapeHTML = (str) => {
-        return str.replace("/</g", "Error").replace("/>/g", "Error");
+        return str.replace(/</g, "Error").replace(/>/g, "Error");
       }
       
       ez.createElement("li",`${escapeHTML(val)} <span>×</span>`,0,0,"ul");  
