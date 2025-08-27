@@ -61,9 +61,9 @@
         if(confirm(alertMessage)){
           ez.removeElementByQuerySelector("ul>li", "all");  
           ez.setData("todos", "[]");  
-          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-300", "bg-blue-500");   
+          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-50", "bg-blue-500");   
         } else {
-          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-500", "bg-blue-300");
+          document.querySelector("#clearTodosBtn").classList.replace("bg-blue-500", "bg-blue-50");
         }
       }  
   
