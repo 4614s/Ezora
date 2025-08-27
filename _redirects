@@ -1,2 +1,3 @@
-/dom https://ezoradom.js.org/index.html 301 
-/ezoradom https://ezoradom.js.org/index.html 301
+/dom https://ezoradom.js.org 301 
+/ezoradom https://ezoradom.js.org 301
+/unavaible-files/* /404.html 200
