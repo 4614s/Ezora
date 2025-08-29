@@ -69,11 +69,12 @@
   
     function addTodo(val){ 
       const escapeHTML = str => str.replace(/</g, "").replace(/>/g, "");      
-      
-      ez.createElement("li",`${escapeHTML(val)} <span>×</span>`,0,0,"ul");  
-      todoStorage.push(escapeHTML(val));  
-      ez.setData("todos", JSON.stringify(todoStorage));  
-    }  
+      if(escapeHTML(val) !== ""){
+        ez.createElement("li",`${escapeHTML(val)} <span>×</span>`,0,0,"ul");  
+        todoStorage.push(escapeHTML(val));  
+        ez.setData("todos", JSON.stringify(todoStorage));          
+       }
+      }  
      
     addRemoveEventToTodos();  
   
