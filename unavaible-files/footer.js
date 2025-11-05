@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded",()=>{
-let lang = navigator.language;
-let licenseName = lang.startsWith("tr") ? "MIT Lisansı" : lang.startsWith("az") ? "MIT Lisenziyası" : "MIT License";
+const footer = document.querySelector('.ezs-footer');
+
+if(footer === null) return;
+
+const lang = navigator.language;
+const licenseName = lang.startsWith("tr") ? "MIT Lisansı" : lang.startsWith("az") ? "MIT Lisenziyası" : "MIT License";
   
-document.querySelector('.ezs-footer').innerHTML = `
+footer.innerHTML = `
 ©${new Date().getFullYear()} <span onclick="location.href='https://ezora.pages.dev'" style="cursor:pointer;">Ezora™</span> – ${licenseName}
 `;
 
-document.querySelector('.ezs-footer').style.textAlign="center";
-document.querySelector('.ezs-footer').style.marginBlock="20px";
-document.querySelector('.ezs-footer').style.color="white";
+footer.style.textAlign="center";
+footer.style.marginBlock="20px";
+footer.style.color="white";
 });
